@@ -8,9 +8,11 @@ $(function(){
 		this.marka = marka;
 		this.cena = cena;
 		this.kolor = kolor;
+		this.warrantyCost = 0.1 * cena;
+		this.totalPrice = this.warrantyCost + cena 
 	};
 	Telefon.prototype.printInfo = function() {
-		console.log("Marka telefonu to " + this.marka + ", kolor to " + this.kolor + ", a cena to " + this.cena + ".");
+		console.log("Marka telefonu to " + this.marka + ", kolor to " + this.kolor + ", a cena to " + this.cena + ". Cena wydłużonej gwarancji to " + this.warrantyCost + ". Łączna cena telefonu z wydłużoną gwarancją to " + this.totalPrice + ".");
 	};
 
 	iPhone6S.printInfo();
