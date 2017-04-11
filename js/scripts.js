@@ -5,18 +5,25 @@ $(function(){
 	var OnePlusOne = new Telefon("OnePlus", 1299, "czarny");
 
 	function Telefon(marka, cena, kolor) {
+		var self = this;
 		this.marka = marka;
 		this.cena = cena;
 		this.kolor = kolor;
-		this.warrantyCost = 0.1 * cena;
-		this.totalPrice = this.warrantyCost + cena 
+		this.warrantyCost = getWarrantyCost();
+
+			function getWarrantyCost() {
+				var result = self.cena / 10;
+				return result;
+			}
 	};
+	
 	Telefon.prototype.printInfo = function() {
-		console.log("Marka telefonu to " + this.marka + ", kolor to " + this.kolor + ", a cena to " + this.cena + ". Cena wydłużonej gwarancji to " + this.warrantyCost + ". Łączna cena telefonu z wydłużoną gwarancją to " + this.totalPrice + ".");
+		console.log("Marka telefonu to " + this.marka + ", kolor to " + this.kolor + ", a cena to " + this.cena + ". Koszt przedłużonej gwarancji to " + this.warrantyCost + ".");
 	};
 
 	iPhone6S.printInfo();
 	SamsungGalaxyS6.printInfo();
 	OnePlusOne.printInfo();
+
 
 });  
